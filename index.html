@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technical Documentation</title>
+    <link rel="stylesheet" href="./styles.css"
+  </head>
+  <body>
+    <nav id="navbar">
+      <header><h1>C# Documentation</h1></header>
+      <ul>
+        <hr><li><a class="nav-link" href="#top">Top</a></li>
+        <hr><li><a class="nav-link" href="#history">History</a></li>
+        <hr><li><a class="nav-link" href="#normalisation">Normalisation</a></li>
+        <hr><li><a class="nav-link" href="#general_characteristics">General characteristics</a></li>
+        <hr><li><a class="nav-link" href="#qualities_and_defects">Qualities and defects</a></li>
+        <hr><li><a class="nav-link" href="#syntax_overview">Syntax overview</a></li>
+        <hr><li><a class="nav-link" href="#changes_in_practices">Changes in practices</a></li>
+        <hr><li><a class="nav-link" href="#short_syntax">Short syntax</a></li>
+        <hr><li><a class="nav-link" href="#expression_language">Expression language</a></li>
+        <hr><li><a class="nav-link" href="#sources">Sources</a></li>
+        <hr><li><a class="nav-link" href="#precompilation">Precompilation</a></li>
+        <hr><li><a class="nav-link" href="#compilation">Compilation</a></li>
+        <hr><li><a class="nav-link" href="#structures">Structures</a></li>
+        <hr><li><a class="nav-link" href="#comment">Comment</a></li>
+        <hr><li><a class="nav-link" href="#control_structures">Control structures</a></li>
+        <hr><li><a class="nav-link" href="#fonctions">Fonctions</a></li>
+        <hr><li><a class="nav-link" href="#prototype">Prototype</a></li>
+        <hr><li><a class="nav-link" href="#reference">Reference</a></li>
+      </ul>
+    </nav>
+    <main id="main-doc">
+      <div>
+        <section class="main-section" id="top">
+          <header><h1>Top</h1></header>
+          <p>The C programming language is imperative, general-purpose and low-level. Invented in the early 1970s to rewrite Unix, C has become one of the most widely used languages, even today. Many more modern languages such as C++, C#, Java and PHP or JavaScript have adopted a syntax similar to C and some of its logic. C gives developers a great deal of control over the machine (particularly memory management) and is therefore used to create the 'foundations' (compilers, interpreters, etc.) of these more modern languages.</p>
+        </section>
+      </div>
+      <div>
+        <hr><section class="main-section" id="history">
+          <header><h1>History</h1></header>
+          <p>The C language was invented in 1972 at Bell Laboratories. It was developed at the same time as Unix by Dennis Ritchie and Ken Thompson. Kenneth Thompson had developed C's direct predecessor, the B language, which was itself largely inspired by BCPL. Dennis Ritchie evolved the B language into a new version that was sufficiently different, in particular by adding types, for it to be called C1.</p>
+          <p>Although C is directly derived from B, Ritchie also notes influences from PL/I, FORTRAN and ALGOL 68. In addition, Ritchie points out that the team was convinced of the merits of writing an operating system in a higher-level language than assembler, a pioneering aspect of Multics, written in PL/I.</p>
+          <p>Brian Kernighan subsequently helped to popularise the C language. He also made a few last-minute changes. In 1978, Kernighan was the main author of the book The C Programming Language, which described the language as finally stabilised; Ritchie took care of the appendices and the examples using Unix. This book is also known as 'the K&R', and is referred to as traditional C or C K&R when referring to the language as it existed at that time.</p>
+        </section>
+      </div>
+      <div>
+        <hr><section class="main-section" id="normalisation">
+          <header><h1>Normalisation</h1></header>
+          <p>In 1983, the American National Standards Institute (ANSI) set up a language standards committee (X3J11), which in 1989 produced the ANSI C or C89 standard (formally ANSI X3.159-1989). In 1990, this standard was also adopted by the International Standards Organisation (C90, C ISO, formally ISO/IEC 9899:1990). ANSI C is an evolution of K&R C that remains extremely compatible. It incorporates a number of ideas from C++, in particular the notion of prototype and type2 qualifiers.</p>
+          <p>Between 1994 and 1996, the ISO working group (ISO/IEC JTC1/SC22/WG14) published two patches and one amendment to C90: ISO/IEC 9899/COR1:1994 Technical Corrigendum 1, ISO/IEC 9899/AMD1:1995 Integrity of C and ISO/IEC 9899/COR1:1996 Technical Corrigendum 2. These fairly modest changes are sometimes referred to as C89 with Amendment 1, or C94 / C953.4. Three header files have been added, two of which relate to wide characters and another which defines a number of macros relating to the ISO 646 character standard.</p>
+          <p>In 1999, a further development of the language was standardised by ISO: C99 (formally ISO/CEI 9899:1999). New features include variable-size arrays, restricted pointers, complex numbers, compound literals, declarations mixed with instructions, inline functions, advanced support for floating-point numbers, and C++ comment syntax. The standard C library has been expanded by six header files since the previous standard.</p>
+          <p>In 2011, ISO ratified a new version of the standard5: C11, formally ISO/IEC 9899:2011. This new version introduces support for multi-threaded programming, generic type expressions and improved support for Unicode.</p>
+          <p>In 2018, ISO ratified a new version6 : formally ISO/IEC 9899:2018, also known as C18 or C17. This development focuses on clarifying and correcting contentious points, and introduces no new functional features.</p>
+          <p>A future version, codenamed C23 and C2x, is currently under development7.</p>
+        </section>
+      </div>
+      <div>
+        <hr><section class="main-section" id="general_characteristics">
+          <header><h1>General characteristics</h1></header>
+          <p>It is a procedural, general-purpose programming language. It is described as a low-level language in the sense that each instruction in the language is designed to be compiled into a number of machine instructions that are fairly predictable in terms of memory occupation and computation load. In addition, it offers a range of integer and float types designed to correspond directly to the data types supported by the processor. Finally, it makes extensive use of memory address calculations with the notion of pointers8.</p>
+          <p>Apart from basic types, C supports enumerated, compound and opaque types. However, it does not offer any operations that deal directly with higher-level objects (computer file, character string, list, hash table, etc.). These more advanced types must be handled by manipulating pointers and compound types. Similarly, the language does not offer object-oriented programming or an exception handling system as standard. There are standard functions for managing input-output and character strings, but unlike other languages, there are no specific operators to improve usability. This makes it easy to replace standard functions with functions specifically designed for a given programme.</p>
+          <p>These characteristics make it the language of choice when it comes to controlling the hardware resources used, as machine language and the binary data generated by compilers are relatively predictable. This language is therefore used extensively in areas such as embedded programming on microcontrollers, intensive computing, operating system writing and modules where processing speed is important. It is a good alternative to assembly language in these areas, with the advantages of a more expressive syntax and source code portability. The C language was invented to write the Unix operating system, and is still used for system programming. The kernels of major operating systems such as Windows and Linux are largely developed in C.</p>
+          <p>On the other hand, developing programs in C, especially if they use complex data structures, is more difficult than with higher-level languages. This is because, in the interests of performance, C requires the user to program certain processes (freeing memory, checking the validity of indices on arrays, etc.) which are handled automatically in high-level languages.</p>
+          <p>Stripped of the conveniences provided by its standard library, C is a simple language, and so is its compiler. This is reflected in the development time for a C compiler for a new processor architecture: Kernighan and Ritchie estimated that it could be developed in two months because "it will be found that 80% of the code in a new compiler is identical to the code in other existing compilers9".</p>
+        </section>
+      </div>
+      <div>
+        <hr><section class="main-section" id="qualities_and_defects">
+          <header><h1>Qualities and defects</h1></header>
+          <p>It is one of the most widely used languages because :
+            <ul>
+              <li>it's been around for a long time, since the early 1970s;</li>
+              <li>it is based on an open standard;</li>
+              <li>many IT professionals are familiar with it;</li>
+              <li>it minimises the memory allocation required, gives complete control over it and maximises performance, in particular through the use of ;</li>
+              <li>it allows the construction of complex, ad-hoc data structures, as close as possible to requirements;</li>
+              <li>compilers and software libraries exist for most ;</li>
+              <li>it has influenced many more recent languages, including C++, Java, C# and PHP; its syntax in particular is widely used;</li>
+              <li>it implements a limited number of concepts, which makes it easier to master and to write simple, fast compilers;</li>
+              <li>it does not rigidly specify the behaviour of the executable file produced, which helps to take advantage of the specific capabilities of each computer ;</li>
+              <li>by compiling directly into machine language (via assembler), it enables software to be written that needs no runtime support (no software library or virtual machine), with predictable behaviour in terms of execution time and RAM consumption, such as operating system kernels and embedded software.</li>
+            </ul>
+          </p>
+          <p>Its main drawbacks are : 
+            <ul>
+              <li>the lack of checks offered by the original compilers (K&R C), and the absence of checks at runtime, which means that errors that could have been automatically detected during development are only detected at runtime, at the cost of a software crash ;
+                <ul>
+                  <li>under UNIX, you could use the lint and cflow utilities to avoid such mishaps,</li>
+                  <li>checks are added over time, but they remain partial,</li>
+                </ul>
+              </li>
+            </ul>
+            <ul>
+              <li>its approach to modularity remained at the level of what was being done in the early 1970s, and has since been largely surpassed by other languages:
+                <ul>
+                  <li>it does not facilitate object-oriented programming,</li>
+                  <li>it does not allow namespaces to be created,</li>
+                </ul>
+              </li>
+            </ul>
+            <ul>
+              <li>very basic exception handling ;</li>
+              <li>very limited support for genericity, despite the introduction of expressions with a generic type in C11 ;</li>
+              <li>the subtleties of writing portable programs, because the exact behaviour of executables depends on the target computer;</li>
+              <li>minimalist support for memory allocation and character strings, forcing programmers to deal with tedious, bug-prone details; in particular, there is no standard garbage collector ;</li>
+              <li>serious bugs that can be caused by a simple lack of attention on the part of the developer, such as a buffer overflow, which is a computer security flaw that can be exploited by malicious software;</li>
+              <li>some errors can only be detected automatically using additional, non-standard tools such as lint and Valgrind ;</li>
+              <li>the language's low productivity compared to more recent languages [ref. requested].</li>
+            </ul>
+          </p>
+        </section>
+      </div>
+      <div>
+        <hr><section class="main-section" id="syntax_overview">
+          <header><h1>Syntax overview</h1></header>
+          <p>The Hello world program was proposed as an example in 1978 in The C Programming Language by Brian Kernighan and Dennis Ritchie. Creating a program displaying "hello world" has since become the benchmark example for introducing the basics of a new language. Here is the original example from the 1st edition of 1978:</p>
+          <p>
+            <form>
+              <pre>
+                <code>
+                  <article>
+<span id="blue">main</span>()
+{
+    printf(<span id="crimson">"hello, world\n"</span>);
+}
+                  </article>
+                </code>
+              </pre>
+            </form>
+          </p>
+          <ul>
+            <li>main is the name of the main function, also known as the program entry point.</li>
+            <li>The parentheses () after main indicate that this is a function.</li>
+            <li>The braces { and } surround the instructions that make up the body of the function.</li>
+            <li>printf is a function for writing to standard output, which produces the display in the default console display</li>
+            <li>The " characters delimit a string, in this case hello, world\n.</li>
+            <li>The \n characters are an escape sequence representing the line feed.</li>
+            <li>A semi-colon ; ends the expression statement.</li>
+          </ul>
+        </section>
+      </div>
+      <div>
+        <hr><section class="main-section" id="changes_in_practices">
+          <header><h1>Changes in practices</h1></header>
+          <p>The same programme, compliant with the ISO standard and following contemporary best practice:</p>
+          <p>
+            <form>
+              <pre>
+                <code>
+                  <article>
+<span i="goldenrod">#include</span> <span id="cornflowerblue"><stdio.h></span>
+
+<span id="crimson">int</span> <span id="blue">main</span(<span id="crimson">void</span>)
+{
+    printf(<span id="crimson">"hello, world\n"</span>);
+    <span id="green">return</span> <span id="darkgray">0</span>;
+}
+                  </article>
+                </code>
+              </pre>
+            </form>
+          </p>
+          <ul>
+            <li>#include <stdio.h> includes the standard <stdio.h> header containing the declarations of the standard C library I/O functions, including the printf function used here.</li>
+            <li>int is the type returned by the main function. The int type is the implicit type in K&R C and C89, and was commonly omitted when the Kernighan and Ritchie example was written. It is mandatory in C99.</li>
+            <li>The void keyword in brackets means that the function has no parameters. It can be omitted without ambiguity when defining a function. On the other hand, if it is omitted from the function declaration, it means that the function can receive any parameters10. This declaration feature is considered obsolete in the C 2011 standard11. It should be noted that in the MISRA C 2004 standard, which imposes restrictions on C89 for uses requiring greater security, the void keyword is mandatory both in the declaration and definition of a function with no arguments12.</li>
+            <li>The instruction return 0; indicates that the main function returns the value 0. This value is of type int, and corresponds to the int in front of main.</li>
+          </ul>
+        </section>
+      </div>
+      <div>
+        <hr><section class="main-section" id="short_syntax">
+          <header><h1>Short syntax</h1></header>
+          <p>C's syntax was designed to be brief. Historically, it has often been contrasted with Pascal13, an imperative language also created in the 1970s. Here's an example with a factorial function:</p>
+          <p>
+            <form>
+              <pre>
+                <code>
+                  <article>
+<span id="cadetblue">/* In C (norme ISO) */</span>
+<span id="crimson">int</span> <span id="blue">factorielle</span>(<span id="crimson">int</span> n)
+{
+	<span id="green">if</span> (n > 0) <span id="green">return</span> n <span id="darkgray">*</span> factorielle(n <span id="darkgray">- 1</span>);
+	<span id="green">else return</span> <span id="darkgray">1</span>;
+}
+                  </article>
+                </code>
+              </pre>
+            </form>
+          </p>
+          <p>
+            <form>
+              <pre>
+                <code>
+                  <article>
+<span id="cadetblue">{ In Pascal }</span>
+<span id="green">function</span> <span id="blue">factorielle</span>(n: <span id="crimson">integer</span>) : <span id="crimson">integer</span>
+<span id="green">begin</span>
+	<span id="green">if</span> n <span id="darkgray">> 0</span> <span id="green">then</span> factorielle := n <span id="darkgray">*</span> factorielle(n <span id="darkgray">- 1</span>)
+	<span id="green">else</span> factorielle <span id="darkgray">:= 1</span>
+<span id="green">end</span>.
+                  </article>
+                </code>
+              </pre>
+            </form>
+          </p>
+          <p>Where Pascal uses the keywords function, integer, begin, if, then, else and end, C uses only int, if, else and return, with the other keywords replaced by brackets and curly braces.</p>
+        </section>
+      </div>
+      <div>
+        <hr><section class="main-section" id="expression_language">
+          <header><h1>Expression language</h1></header>
+          <p>C's brevity is not just based on its syntax. The large number of operators available, the fact that most instructions contain an expression, that expressions almost always produce a value, and that test instructions simply compare the value of the tested expression with zero, all contribute to the brevity of the source code.</p>
+          <p>Here is an example of a string copy function - the principle of which is to copy characters until it has copied the null character, which conventionally marks the end of a string in C - given in The C Programming Language, 2nd edition, p. 106 :</p>
+          <p>
+            <form>
+              <pre>
+                <code>
+                  <article>
+<span id="crimson">void</span> <span id="blue">strcpy</span>(<span id="crimson">char</span> <span id="darkgray">*</span>s, <span id="crimson">char</span> <span id="darkgray">*</span>t)
+{
+    <span id="green">while</span> (<span id="darkgray">*</span>s<span id="darkgray">++ = *</span>t<span id="darkgray">++</span>)
+        ;
+}           
+                  </article>
+                </code>
+              </pre>
+            </form>
+          </p>
+          <p>The while loop uses a classic C writing style, which has contributed to C's reputation as an unreadable language. The expression *s++ = *t++ contains: two pointer dereferences; two pointer increments; an assignment; and the assigned value is compared with zero by the while. This loop has no body, because all the operations are performed in the while test expression. We consider that you need to master this kind of notation to master C14.</p>
+          <p>For comparison, a version that did not use the shortcut operators or the implicit zero comparison would give :</p>
+          <p>
+            <form>
+              <pre>
+                <code>
+                  <article>
+<span id="crimson">void</span> <span id="blue">strcpy</span>(<span id="crimson">char</span> <span id="darkgray">*</span>s, <span id="crimson">char</span> <span id="darkgray">*</span>t)
+{
+    <span id="green">while</span> (<span id="darkgray">*</span>t <span id="darkgray">!=</span> <span id="crimson">'\0'</span>) {
+        <span id="darkgray">*</span>s <span id="darkgray">= *</span>t;
+        s <span id="darkgray">=</span> s <span id="darkgray">+ 1</span>;
+        t <span id="darkgray">=</span> t <span id="darkgray">+ 1</span>;
+    }
+    <span id="darkgray">*</span>s <span id="darkgray">= *</span>t;
+}      
+                  </article>
+                </code>
+              </pre>
+            </form>
+          </p>
+        </section>
+      </div>
+      <div>
+        <hr><section class="main-section" id="sources">
+          <header><h1>Sources</h1></header>
+          <p>A programme written in C is generally divided into several source files compiled separately.</p>
+          <p>C source files are text files, generally in the character encoding of the host system. They can be written using a simple text editor. There are many editors, and even integrated development environments (IDEs), that have specific functions to support writing C sources.</p>
+          <img src="https://cutt.ly/YwpTxFKa" />
+          <p>It is customary to give the filename extensions .c and .h to C source files. .h files are called header files. They are designed to be included at the beginning of source files, and contain only declarations.</p>
+          <p>When a .c or .h file uses an identifier declared in another .h file, it includes the latter. The principle generally applied is to write an .h file for each .c file, and to declare in the .h file everything that is exported by the .c file.</p>
+          <p>Generating an executable from source files involves several stages, which are often automated using tools such as make, SCons, or tools specific to an integrated development environment. There are four stages leading from the source to the executable file: precompilation, compilation, assembly and link editing. When a project is compiled, only the .c files are included in the list of files to be compiled; the .h files are included by the preprocessor directives contained in the source files.</p>
+        </section>
+      <div>
+        <hr><section class="main-section" id="precompilation">
+          <header><h1>Precompilation</h1></header>
+          <p>The C preprocessor executes directives contained in source files. It recognises them by the fact that they are at the beginning of a line, and all start with the # character. The most common directives include :
+            <ul>
+              <li>#include for inclusion ;</li>
+              <li>#define for macro definition ;</li>
+              <li>#if to start conditional compilation ;</li>
+              <li>#ifdef and #ifndef, equivalent to #if defined and #if ! defined;</li>
+              <li>#endif to end conditional compilation.</li>
+            </ul>
+          </p>
+          <p>As well as executing the directives, the preprocessor replaces comments with white space and replaces macros. For the rest, the source code is sent as is to the compiler for the next phase. However, each #include in the source code must be recursively replaced by the included source code. In this way, the compiler receives a single source from the preprocessor, which constitutes the compilation unit.</p>
+          <p>Here is an example of a copyarray.h source file that makes classic use of preprocessor directives:</p>
+          <p>
+            <form>
+              <pre>
+                <code>
+                  <article>
+<span id="goldenrod">#ifndef COPYARRAY_H</span>
+<span id="goldenrod">#define COPYARRAY_H</span>
+
+<span id="goldenrod">#include</span> <span id="cornflowerblue"><stddef.h></span>
+
+<span id="crimson">void</span> <span id="blue">copyArray</span>(<span id="crimson">int</span> <span id="darkgray">*</span>, <span id="crimson">size_t</span>);
+
+<span id="goldenrod">#endif</span>
+                  </article>
+                </code>
+              </pre>
+            </form>
+          </p>
+          <p>The #ifndef, #define and #endif directives ensure that the code inside is compiled only once even if it is included several times. The #include <stddef.h> directive includes the header that declares the size_t type used below.</p>
+        </section>
+      </div>
+      <div>
+        <hr><section class="main-section" id="compilation">
+          <header><h1>Compilation</h1></header>
+          <p>The compilation phase generally consists of generating the assembly code. This is the most processing-intensive phase. It is performed by the compiler itself. For each compilation unit, an assembly language file is obtained.</p>
+          <p>This stage can be divided into sub-stages:
+            <ul>
+              <li>lexical analysis, which is the recognition of key words in language;</li>
+              <li>syntax analysis, which analyses the structure of the program and its compliance with the standard ;</li>
+              <li>code optimisation ;</li>
+              <li>writing code that is isomorphic to the assembler code (and sometimes the assembler code itself when requested as an option by the compiler).</li>
+            </ul>
+          </p>
+          <p>By abuse of language, we call compilation the whole phase of generating an executable file from the source files. But this is only one of the stages leading to the creation of an executable.</p>
+          <p>Some C compilers operate at this level in two phases, the first generating a file compiled in an intermediate language intended for an ideal virtual machine (see Bytecode or P-Code) which is portable from one platform to another, the second converting the intermediate language into an assembly language depending on the target platform. Other C compilers do not generate an assembly language, but only the file compiled in the intermediate language, which will be automatically interpreted or compiled into native code at runtime on the target machine (by a virtual machine that will be linked to the final program).</p>
+        </section>
+      </div>
+      <div>
+        <hr><section class="main-section" id="structures">
+          <header><h1>Structures</h1></header>
+          <p>C supports compound types with the notion of structure. To define a structure, use the struct keyword followed by the name of the structure. The members must then be declared between braces. As with all declarations, a semicolon completes the declaration.</p>
+          <p>
+            <form>
+              <pre>
+                <code>
+                  <article>
+<span id="cadetblue">/* Declaration of the person structure */</span>
+<span id="green">struct</span> <span id="darkblue">Person</span>
+{
+    <span id="crimson">int</span> age;
+    <span id="crimson">char</span> <span id="darkgray">*</span>name;
+};
+                  </article>
+                </code>
+              </pre>
+            </form>
+          </p>
+          <p>Pour accéder aux membres d'une structure, il faut utiliser l'opérateur <strong>"."</strong>.</p>
+          <p>
+            <form>
+              <pre>
+                <code>
+                  <article>
+<span id="crimson">int</span> <span id="blue">main</span>()
+{
+    <span id="green">struct</span> <span id="darkblue">Person</span> p;
+    p.name <span id="darkgray">=</span> <span id="crimson">"ANTA"</span>;
+    p.age <span id="darkgray">= 19</span>;
+}
+                  </article>
+                </code>
+              </pre>
+            </form>
+          </p>
+          <p>Functions can receive pointers to structures. They use the same syntax as conventional pointers. However, the -> operator must be used on the pointer to access the structure's fields. It is also possible to dereference the pointer so as not to use this operator, and always use the <strong>"."</strong> .</p>
+          <p>
+            <form>
+              <pre>
+                <code>
+                  <article>
+<span id="crimson">void</span> <span id="blue">birthday</span>(<span id="green">struct</span> <span id="darkblue">Person</span> <span id="darkgray">*</span> p)
+{
+    p<span id="darkgray">-></span>age<span id="darkgray">++</span>;
+    printf(<span id="crimson">"Happy birthday %s !"</span>, (<span id="darkgray">*</span>p).name);
+}
+
+<span id="crimson">int</span> <span id="blue">main</span>()
+{
+    <span id="green">struct</span> <span id="darkblue">Person</span> p;
+    p.name <span id="darkgray">=</span> <span id="crimson">"ANTA"</span>;
+    p.age <span id="darkgray">= 19</span>;
+    birthday(<span id="darkgray">&</span>p);
+}
+                  </article>
+                </code>
+              </pre>
+            </form>
+          </p>
+        </section>
+      </div>
+      <div>
+        <hr><section class="main-section" id="comment">
+          <header><h1>Comment</h1></header>
+          <p>In versions of C prior to C99, comments had to start with a slash and an asterisk ("/*") and end with an asterisk and a slash. Almost all modern languages have adopted this syntax for writing comments in code. Everything between these symbols is a comment, including line breaks:</p>
+          <p>
+            <form>
+              <pre>
+                <code>
+                  <article>
+<span id="cornflowerblue">/* This is a comment
+   on two lines
+   or more */</span>
+                  </article>
+                </code>
+              </pre>
+            </form>
+          </p>
+          <p>The C99 standard has adopted the end-of-line comments from C++, introduced by two slashes and ending with the line :</p>
+          <p>
+            <form>
+              <pre>
+                <code>
+                  <article>
+<span id="cornflowerblue">// Comment to the end of the line</span>
+                  </article>
+                </code>
+              </pre>
+            </form>
+          </p>
+        </section>
+      <div>
+        <hr><section class="main-section" id="control_structures">
+          <header><h1>Control structures</h1></header>
+          <p>The syntax of the various control structures that exist in C is widely used in several other languages, including C++ of course, but also Java, C#, PHP and JavaScript.</p>
+          <p>There are three main types of structure:</p>
+          <p>
+            <ul>
+              <li>tests (also known as conditional branches) with :
+                <ul>
+                  <li>if (expression) statement</li>
+                  <li>if (expression) statement else statement</li>
+                  <li>switch (expression) statement, with case and default in the instruction</li>
+                </ul>
+              </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>loops with :
+                <ul>
+                  <li>while (expression) statement ;</li>
+                  <li>for (optional_expression; optional_expression; optional_expression) statement</li>
+                  <li>do statementwhile (expression).</li>
+                </ul>
+              </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>jumps (unconditional connections) :
+                <ul>
+                  <li>break ;</li>
+                  <li>continue ;</li>
+                  <li>return optional_expression ;</li>
+                  <li>goto label.</li>
+                </ul>
+              </li>
+            </ul>
+          </p>
+        </section>
+      </div>
+      <div>
+        <hr><section class="main-section" id="fonctions">
+          <header><h1>Fonctions</h1></header>
+          <p>Functions in C are blocks of instructions that receive one or more arguments and can return a value. If a function returns no value, the keyword void is used. A function can also take no arguments. The void keyword is recommended in this case.</p>
+          <p>
+            <form>
+              <pre>
+                <code>
+                  <article>
+<span id="cornflowerblue">// Function returning no value (called a procedure)</span>
+<span id="crimson">void</span> <span id="blue">display</span>(<span id="crimson">int</span> a)
+{
+    printf(<span id="crimson">"%d"</span>, a);
+}
+
+
+<span id="cornflowerblue">// Function returning an integer</span>
+<span id="crimson">int</span> <span id="blue">sum</span>(<span id="crimson">int</span> a, <span id="crimson">int</span> b)
+{
+    <span id="green">return</span> a <span id="darkgray">+</span> b;
+}
+
+<span id="cornflowerblue">// Function with no arguments</span>
+<span id="crimson">int</span> <span id="blue">enter</span>(<span id="crimson">void</span>)
+{
+    <span id="crimson">int</span> a;
+    scanf(<span id="crimson">"%d"</span>, <span id="darkgray">&</span>a);
+    <span id="green">return</span> a;
+}
+                  </article>
+                </code>
+              </pre>
+            </form>
+          </p>
+        </section>
+      </div>
+      <div>
+        <hr><section class="main-section" id="prototype">
+          <header><h1>Prototype</h1></header>
+          <p>A prototype consists of declaring a function and its parameters without the instructions that make it up. A prototype ends with a semicolon.</p>
+          <p>
+            <form>
+              <pre>
+                <code>
+                  <article>
+<span id="cornflowerblue">// Prototype of saisir</span>
+<span id="crimson">int</span> <span id="blue">saisir</span>(<span id="crimson">void</span>);
+
+<span id="cornflowerblue">// Function using saisir</span>
+<span id="crimson">int</span> <span id="blue">sum</span>(<span id="crimson">void</span>)
+{
+    <span id="crimson">int</span> a <span id="darkgray">=</span> saisir(), b <span id="darkgray">=</span> saisir();
+    <span id="green">return</span> a <span id="darkgray">+</span> b;
+}
+
+<span id="cornflowerblue">// Definition of saisir</span>
+<span id="crimson">int</span> <span id="blue">enter</span>(<span id="crimson">void</span>)
+{
+    <span id="crimson">int</span> a;
+    scanf(<span id="crimson">"%d"</span>, <span id="darkgray">&</span>a);
+    <span id="green">return</span> a;
+}
+                  </article>
+                </code>
+              </pre>
+            </form>
+          </p>
+          <p>Generally, all prototypes are written in .h files, and functions are defined in a .c file.</p>
+        </section>
+      </div>
+      <div>
+        <hr><section class="main-section" id="reference">
+          <header><h1>Reference</h1></header>
+          <p>
+            <ul><li>All this documentation is taken from <a href="https://fr.wikipedia.org/wiki/C_(langage)#Histoire">Wikipédia</a></li></ul>
+          </p>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+#navbar {
+    text-align: left;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100%;
+    overflow-y: auto;
+    background-color: MediumSeaGreen;
+  }
+  
+  @media (max-width: 230px) and (min-width: 210px) {
+    #navbar {
+      width: 220px;
+    }
+  }
+  
+  #main-doc {
+    margin-left: 200px;
+    padding: 19px;
+  }
+  
+  #main-section {
+    margin-bottom: 20px;
+  }
+  
+  article {
+    background-color: pink;
+    padding: 30px;
+    margin: 25px;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 10px;
+    ;
+  }
+  
+  nav li {
+    margin: 5px;
+    border: solid;
+    border-color: black;
+    
+  }
+  
+  nav a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: cyan;
+    font-size: 20px;
+    
+  }
+  
+  nav a:hover {
+    color: black;
+    background-color: cyan;
+  }
+  
+  nav header {
+    text-align: center;
+    color: maroon;
+  }
+  
+  main-doc {
+    margin-left: 200px;
+    padding: 20px;
+  }
+  
+  main-section {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  #crimson {
+    color: crimson;
+  }
+  
+  #blue {
+    color: blue;
+  }
+  
+  #green {
+    color: green;
+  }
+  
+  #goldenrod {
+    color: goldenrod;
+  }
+  
+  #darkgray {
+    color: purple;
+  }
+  
+  #cornflowerblue {
+    color: cornflowerblue;
+  }
